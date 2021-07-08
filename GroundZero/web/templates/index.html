@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'web/css/index.css'%}">
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css'%}">
+    <script type="text/javascript" src="{% static 'web/js/jquery-3.2.1.slim.min.js'%}" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'web/js/popper.min.js'%}" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{% static 'web/js/bootstrap.min.js'%}" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  
+    <script type="text/javascript" src="{% static 'web/js/jquery.validate.js'%}"></script>
+    <script type="text/javascript" src="{% static 'web/js/formproovedor.js'%}"></script>
+    <title>Inicio</title>
+</head>
+<body style="background-color: #ccccff;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav derecha">
+                <li class="nav-item">
+                    <a class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item proovedores">
+                    <a class="nav-link" href="ver">Proovedores</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <!--<form action="" method="post" class="formulario">
+            {% csrf_token %}
+            <div class="form-group">
+                {{proovedor_form.id.label}}
+                {{proovedor_form.id}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.nombre.label }}
+                {{ proovedor_form.nombre}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.fono.label }}
+                {{ proovedor_form.fono }}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.direccion.label}}
+                {{ proovedor_form.direccion}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.email.label}}
+                {{ proovedor_form.email}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.pais.label}}
+                {{ proovedor_form.pais}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.password.label}}
+                {{ proovedor_form.password}}
+            </div>
+            <div class="form-group">
+                {{ proovedor_form.moneda.label}}
+                {{ proovedor_form.moneda}}
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
+            </div>
+    </form>
+
+    </div>-->
+    
+<div class="container">
+    <h1 class="titulo">Ground Zero</h1>
+    <!--Formulario 1-->
+    <div class="formulario col-md-10 col-sm-12">
+        <form id="formproovedor" class="form col-md-6 col-sm-12">
+            <div class="form-group">
+                <label>Numero Identificación: </label>
+                <input type="text" name="id" id="id" required class="form-control" placeholder="Ingrese su número identificador">
+            </div>
+            <div class="form-group">
+                <label>Nombre Completo: </label>
+                <input type="text" required class="form-control" placeholder="Ingrese su nombre completo" onchange="CambiarMayuscular()">
+            </div>
+            <div class="form-group">
+                <label>Teléfono: </label>
+                <input type="text"  name="fono" minlenght="12" placeholder="+56 9 xxxx xxxx" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Dirección: </label>
+                <input type="text" name="direccion"  placeholder="Dirección" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico: </label>
+                <input type="text" name="email" required placeholder="nombre@dominio.cl" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>País: </label>
+                <input type="text" name="pais" placeholder="País" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Contraseña: </label>
+                <input type="text" name="password" required placeholder="Ingrese Contraseña" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Moneda de Pago: </label>
+                <input type="text" name="moneda" placeholder="Ingrese tipo de moneda" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" id="enviar" value="Enviar">
+                <input type="reset" class="btn btn-danger" id="limpiar" value="Limpiar">
+            </div>
+        </form>
+
+    </div>
+
+    <footer class="text-center text-white" style="background-color: #222222;">
+        <div class="container p-4 redessociales">
+           <a href="https://github.com/javieraazocar/ETEtapa1_JavieraAzocar003D.git" target="_blank"><img src="{% static 'web/img/logo_github.png' %}" alt="Logo Github"></a>
+           <a href="https://www.instagram.com/" target="_blank"><img src="{% static 'web/img/logo_instagram.png'%}" alt="Logo Instagram"></a>
+           <a href="https://twitter.com/AAAAAGGHHHH/status/1377208310315683842" target="_blank"><img src="{% static 'web/img/logo_twitter.png'%}" alt="Logo Twitter"></a>
+        </div>
+        <div class="text-center p-2" style="background-color: rgb(24, 24, 24);">
+           <p class="text-white">Copyright &copy; 2021 <strong>GroundZero; Javiera Azocar</strong>. Todos los derechos reservados</p>
+        </div>
+     </footer>
+</body>
+</html>

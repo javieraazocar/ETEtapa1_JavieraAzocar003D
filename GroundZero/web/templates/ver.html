@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'web/css/index.css'%}">
+    <link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css'%}">
+    <title>Proovedores</title>
+</head>
+<body style="background-color: #ccccff;">
+    <nav class="navbar navbar-expand-sm navbar-light bg-white fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="opciones">
+            <ul class="navbar-nav derecha">
+                <li class="nav-item">
+                    <a class="nav-link"  href="/">Inicio</a>
+                </li>
+                <li class="nav-item proovedores">
+                    <a class="nav-link" href="ver">Proovedores</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="row">
+        <h1>Listado de mensajes</h1>
+     </div>
+     <div class="table-responsive">
+     <table class="table table-bordered ">
+        <thead class="thead-dark">
+           <tr>
+              <th scope="col">Identificador</th>
+              <th scope="col">Nombre Completo</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Email</th>
+              <th scope="col">Direccion</th>
+              <th scope="col">Pais</th>
+              <th scope="col">Moneda</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+           </tr>
+        </thead>
+        <tbody>
+            {% for pro in datos%}
+                <tr>
+                     <td>{{pro.id}}</td>
+                     <td>{{pro.nomCompleto}}</td>
+                     <td>{{pro.telefono}}</td>
+                     <td>{{pro.email}}</td>
+                     <td>{{pro.direccion}}</td>
+                     <td>{{pro.pais}}</td>
+                     <td>{{pro.moneda}}</td>
+                     <td><a href="{% url 'form_ModProovedor' me.id%}" class="btn btn-primary">Modificar</a></td>
+                     <td><a href="{% url 'form_delProovedor' me.id%}" class="btn btn-danger">Eliminar</a></td>
+                 </tr>
+            {%endfor%}
+        </tbody>
+     </table>
+    </div>
+      </div> 
+        <footer class="text-center text-white" style="background-color: #222222;">
+            <div class="container p-4 redessociales">
+               <a href="https://github.com/javieraazocar/ETEtapa1_JavieraAzocar003D.git" target="_blank"><img src="{% static 'web/img/logo_github.png' %}" alt="Logo Github"></a>
+               <a href="https://www.instagram.com/" target="_blank"><img src="{% static 'web/img/logo_instagram.png'%}" alt="Logo Instagram"></a>
+               <a href="https://twitter.com/AAAAAGGHHHH/status/1377208310315683842" target="_blank"><img src="{% static 'web/img/logo_twitter.png'%}" alt="Logo Twitter"></a>
+            </div>
+            <div class="text-center p-2" style="background-color: rgb(24, 24, 24);">
+               <p class="text-white">Copyright &copy; 2021 <strong>GroundZero; Javiera Azocar</strong>. Todos los derechos reservados</p>
+            </div>
+         </footer>
+
+</body>
+
+ 
+</html>
